@@ -25,22 +25,6 @@ dependencies {
     compileOnly "joda-time:joda-time:2.2"
     testCompileOnly "junit:junit:4.12"
 }
-// end::dependencies[]
-
-// tag::wrapper[]
-// end::wrapper[]
-
-// publication
-publishing {
-    publications {
-        jar(MavenPublication) {
-            groupId 'tlsrhksgh'
-            artifactId 'gs-gradle'
-            version '1.0'
-            from components.java
-        }
-    }
-}
 
 // artifactory configuration
 buildscript {
@@ -50,7 +34,7 @@ buildscript {
     }
     dependencies {
         //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-        classpath("org.jfrog.buildinfo:build-info-extractor-gradle:4.32.0")
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
     }
 }
 
@@ -59,20 +43,20 @@ allprojects {
 }
 
 artifactory {
+    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
         repository {
             repoKey = 'gradle-dev-local'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
             maven = true
-        }
-        defaults {
-            publications('jar')
-            publishArtifacts = true
-            publishPom = true
         }
     }
     resolve {
         repository {
             repoKey = 'gradle-dev'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
             maven = true
         }
     }
