@@ -49,7 +49,7 @@ artifactory {
     contextUrl = "tlsrhksgh.frog.io"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
         repository {
-            repoKey = 'gradle-dev-local'
+            repoKey = 'default-gradle-dev'
             username = name
             password = pw
             maven = true
@@ -57,7 +57,7 @@ artifactory {
     }
     resolve {
         repository {
-            repoKey = 'gradle-dev'
+            repoKey = 'default-gradle-dev'
             username = name
             password = pw
             maven = true
