@@ -35,7 +35,7 @@ dependencies {
 publishing {
     publications {
         jar(MavenPublication) {
-            groupId 'academy.newtech'
+            groupId 'tlsrhksgh'
             artifactId 'gs-gradle'
             version '1.0'
             from components.java
@@ -51,7 +51,7 @@ buildscript {
     }
     dependencies {
         //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+        classpath("org.jfrog.buildinfo:build-info-extractor-gradle:4.32.0")
     }
 }
 
