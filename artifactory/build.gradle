@@ -42,24 +42,16 @@ allprojects {
     apply plugin: "com.jfrog.artifactory"
 }
 
-def name = System.getenv('ARTIFACTORY_USERNAME')
-def pw = System.getenv('ARTIFACTORY_PASSWORD')
-
 artifactory {
-    contextUrl = "tlsrhksgh.frog.io"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
         repository {
             repoKey = 'default-gradle-dev'
-            username = name
-            password = pw
             maven = true
         }
     }
     resolve {
         repository {
             repoKey = 'default-gradle-dev'
-            username = name
-            password = pw
             maven = true
         }
     }
