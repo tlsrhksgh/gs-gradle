@@ -45,13 +45,13 @@ allprojects {
 artifactory {
     publish {
         repository {
-            repoKey = 'default-gradle-dev'
+            repoKey = 'gradle-dev-local'
             maven = true
         }
     }
     resolve {
         repository {
-            repoKey = 'default-gradle-dev'
+            repoKey = 'gradle-dev'
             maven = true
         }
     }
